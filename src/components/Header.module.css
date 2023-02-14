@@ -1,0 +1,58 @@
+.header {
+  align-items: start;
+  row-gap: 2rem;
+  height: 15vh;
+  padding-top: 1rem;
+  border-bottom: 4px solid var(--color-gray-200);
+}
+
+.title {
+  grid-column: 2/3;
+  font-size: 5.8rem;
+  font-weight: 600;
+  animation: moveInLeft 0.5s ease-out;
+}
+
+.btn-new-game {
+  grid-column: 3/4;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--color-gray-1000);
+  padding: 0.4rem 1rem;
+  border-radius: 1px;
+  justify-self: end;
+  align-self: end;
+  margin: 0 1rem 1rem 0;
+  transition: 0.5s
+}
+
+.btn-new-game:hover, .btn-new-game:active {
+  background-color: var(--color-gray-500);
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-400px);
+  }
+
+  25% {
+    opacity: 0.25;
+    transform: translateX(-200px);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translateX(0);
+  }
+
+  75% {
+    opacity: 0.75;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

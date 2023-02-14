@@ -61,38 +61,6 @@ button {
 }
 
 
-.header {
-  align-items: start;
-  row-gap: 2rem;
-  height: 15vh;
-  padding-top: 1rem;
-  border-bottom: 4px solid var(--color-gray-200);
-}
-
-.title {
-  grid-column: 2/3;
-  font-size: 6rem;
-  font-weight: 700;
-}
-
-.btn-new-game {
-  grid-column: 3/4;
-  font-size: 2.6rem;
-  font-weight: 600;
-  color: var(--color-gray-1000);
-  padding: 0.4rem 1rem;
-  border-radius: 1px;
-  justify-self: end;
-  align-self: end;
-  margin: 0 1rem 1rem 0;
-  transition: 0.5s
-}
-
-.btn-new-game:hover, .btn-new-game:active {
-  background-color: var(--color-gray-500);
-}
-
-
 .players-table {
   height: 85vh;
   display: grid;

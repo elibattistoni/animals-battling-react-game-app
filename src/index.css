@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap');
+
+:root {
+
+  --color-gray-100: #F5F5F5;
+  --color-gray-200: #E8E8E8;
+  --color-gray-300: #DEDEDE;
+  --color-gray-400: #D4D4D4;
+  --color-gray-500: #B5B5B5;
+  --color-gray-600: #999999;
+  --color-gray-700: #858585;
+  --color-gray-800: #6E6E6E;
+  --color-gray-900: #525252;
+  --color-gray-1000: #3D3D3D;
+
+  --color-1-300: #97FF6EFF;
+  --color-2-300: #69f9f1;
+  --color-3-300: #FFD754FF;
+  --color-2-400: #00e0d7;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /* this makes it that 1rem == 10px */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 300;
+  background-color: var(--color-gray-1000);
+  color: var(--color-gray-200);
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+
+.grid {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid__two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid__three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.header {
+  align-items: start;
+  row-gap: 2rem;
+  height: 15vh;
+  padding-top: 1rem;
+  border-bottom: 4px solid var(--color-gray-200);
+}
+
+.title {
+  grid-column: 2/3;
+  font-size: 6rem;
+  font-weight: 700;
+}
+
+.btn-new-game {
+  grid-column: 3/4;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--color-gray-1000);
+  padding: 0.4rem 1rem;
+  border-radius: 1px;
+  justify-self: end;
+  align-self: end;
+  margin: 0 1rem 1rem 0;
+  transition: 0.5s
+}
+
+.btn-new-game:hover, .btn-new-game:active {
+  background-color: var(--color-gray-500);
+}
+
+
+.players-table {
+  height: 85vh;
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+}
+
+.score-box {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.score-machine {
+  grid-column: 1/2;
+}
+
+.score-human {
+  grid-column: 3/4;
+}
+
+.names-box {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.name-machine {
+  grid-column: 1/2;
+  padding: 1rem 2rem;
+}
+
+.name-human {
+  grid-column: 3/4;
+  padding: 1rem 2rem;
+}
+
+.play-box {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.player-machine, .playground-out, .player-human {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-machine, .player-human {
+  flex-direction: column;
+  gap: 4rem;
+  font-size: 2rem;
+}
+
+.playground-in {
+  width: 80%;
+  height: 70%;
+  border: 2px solid var(--color-gray-200);
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 5rem;
+  font-weight: 600;
+  color: var(--color-1-300);
+}
+
+
+.board {
+  width: 100%;
+  height: 100%
+}
+
+.playground-pawn-human {
+  background-color: var(--color-2-300);
+}
+
+.playground-pawn-machine {
+  background-color: var(--color-3-300);
+}
+
+.playground-pawn-machine, .playground-pawn-human {
+  font-size: 5rem;
+  color: var(--color-gray-1000);
+  padding: 1rem 2rem;
+  animation: fadeIn 2s;
+}
+
+.hidden {
+  display: hidden;
+}
+
+.suspense {
+  background-color: transparent;
+  color: var(--color-gray-200);
+  font-size: 6rem
+}
+
+.loader {
+  width: 200px;
+  aspect-ratio: 8/5;
+  --_g: no-repeat radial-gradient(#fff 68%, #ffff 71%);
+  -webkit-mask: var(--_g), var(--_g), var(--_g);
+  -webkit-mask-size: 25% 40%;
+  background: transparent;
+  animation: load 1s infinite;
+}
+
+.player-machine {
+  align-items: flex-start;
+  padding-left: 5rem
+}
+
+.player-human {
+  align-items: flex-end;
+  padding-right: 5rem
+}
+
+.bolder-machine, .bolder-human {
+  font-size: 7rem;
+  font-weight: 700;
+}
+
+.bolder-machine {
+  color: var(--color-3-300)
+}
+
+.bolder-human {
+  color: var(--color-2-300)
+}
+
+.game-winner.name-human {
+  border: 4px solid var(--color-2-300)
+}
+
+.game-winner.name-machine {
+  border: 4px solid var(--color-3-300)
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes load {
+  0% {
+    -webkit-mask-position: 0% 0%, 50% 0%, 100% 0%
+  }
+
+  16.67% {
+    -webkit-mask-position: 0% 100%, 50% 0%, 100% 0%
+  }
+
+  33.33% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 0%
+  }
+
+  50% {
+    -webkit-mask-position: 0% 100%, 50% 100%, 100% 100%
+  }
+
+  66.67% {
+    -webkit-mask-position: 0% 0%, 50% 100%, 100% 100%
+  }
+
+  83.33% {
+    -webkit-mask-position: 0% 0%, 50% 0%, 100% 100%
+  }
+
+  100% {
+    -webkit-mask-position: 0% 0%, 50% 0%, 100% 0%
+  }
+}

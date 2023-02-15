@@ -1,0 +1,12 @@
+.score-box {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.score-machine {
+  grid-column: 1/2;
+}
+
+.score-human {
+  grid-column: 3/4;
+}

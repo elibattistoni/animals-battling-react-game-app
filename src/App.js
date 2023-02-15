@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (state.movesCount === 20) {
+    if (state.movesCount === 5) {
       dispatchAction({
         type: "FINISH_GAME",
       });

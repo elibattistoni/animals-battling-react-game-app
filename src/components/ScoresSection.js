@@ -1,10 +1,14 @@
+import classes from "./ScoresSection.module.css";
+
 function ScoresSection({ finished, scoreHuman, scoreMachine }) {
   return (
-    <section className="grid grid__three-cols score-box">
-      <div className={`score-machine ${finished ? "bolder-machine" : ""}`}>
+    <section className={`grid grid__three-cols ${classes["score-box"]}`}>
+      <div
+        className={`${classes["score-machine"]} ${finished ? "bolder" : ""}`}
+      >
         {scoreMachine}
       </div>
-      <div className={`score-human ${finished ? "bolder-human" : ""}`}>
+      <div className={`${classes["score-human"]} ${finished ? "bolder" : ""}`}>
         {scoreHuman}
       </div>
     </section>

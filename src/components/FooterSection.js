@@ -1,18 +1,19 @@
+import classes from "./FooterSection.module.css";
 import { players } from "../utils/config";
 
 function FooterSection({ gameWinner, finished }) {
   return (
-    <footer className="grid grid__three-cols names-box">
+    <footer className={`grid grid__three-cols ${classes["names-box"]}`}>
       <div
-        className={`name-machine ${finished ? "bolder-machine" : ""} ${
-          gameWinner === "machine" ? "game-winner" : ""
+        className={`${classes["name-machine"]} ${finished ? "bolder" : ""} ${
+          gameWinner === "machine" ? classes["game-winner"] : ""
         }`}
       >
         {players[11]}
       </div>
       <div
-        className={`name-human ${finished ? "bolder-human" : ""} ${
-          gameWinner === "human" ? "game-winner" : ""
+        className={`${classes["name-human"]} ${finished ? "bolder" : ""} ${
+          gameWinner === "human" ? classes["game-winner"] : ""
         }`}
       >
         {players[22]}

@@ -41,7 +41,8 @@
 }
 
 .dyno-human {
-  fill: var(--color-2-700)
+  fill: var(--color-2-700);
+  transform: rotateY(180deg);
 }
 
 .dyno-machine {

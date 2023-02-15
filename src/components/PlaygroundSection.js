@@ -1,4 +1,6 @@
-import { pawns } from "../utils/config";
+import FieldMachine from "./FieldMachine";
+import FieldHuman from "./FieldHuman";
+import MessagePlayground from "./MessagePlayground";
 import Pawn from "./Pawn";
 
 function PlaygroundSection({
@@ -11,33 +13,20 @@ function PlaygroundSection({
   movePawn,
 }) {
   let contentPlayground;
+
   if (!isHumanPlaying && !isMachinePlaying) {
-    contentPlayground = (
-      <div className="message">
-        <span>{message}</span>
-      </div>
-    );
+    // ! show message if no one is playing
+    contentPlayground = <MessagePlayground message={message} />;
   } else {
-    const stylesMachine = `${
-      !isMachinePlaying && isHumanPlaying
-        ? "suspense"
-        : "playground-pawn-machine"
-    } ${!isHumanPlaying ? "hidden" : ""}`;
-
-    const stylesHuman = `playground-pawn-human ${
-      !isHumanPlaying ? "hidden" : ""
-    }`;
-
+    //! show pawns depending on who is playing
     contentPlayground = (
       <div className="grid grid__two-cols board">
-        <div className={stylesMachine}>
-          {isMachinePlaying ? (
-            pawns[moveMachine]
-          ) : (
-            <span className="loader">...</span>
-          )}
-        </div>
-        <div className={stylesHuman}>{pawns[moveHuman]}</div>
+        <FieldMachine
+          isMachinePlaying={isMachinePlaying}
+          moveMachine={moveMachine}
+          isHumanPlaying={isHumanPlaying}
+        />
+        <FieldHuman isHumanPlaying={isHumanPlaying} moveHuman={moveHuman} />
       </div>
     );
   }

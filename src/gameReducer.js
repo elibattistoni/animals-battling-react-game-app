@@ -26,6 +26,7 @@ export function actionReducer(state, action) {
       moveHuman: null,
       moveMachine: null,
       movesCount: 0,
+      roundWinner: null,
       message: "Play!",
       finished: false,
       gameWinner: null,
@@ -33,7 +34,10 @@ export function actionReducer(state, action) {
   }
 
   if (action.type === "HUMAN_MOVE") {
-    return { ...state, ...{ isHumanPlaying: true, moveHuman: action.value } };
+    return {
+      ...state,
+      ...{ isHumanPlaying: true, moveHuman: action.value, message: null },
+    };
   }
 
   if (action.type === "MACHINE_MOVE") {
@@ -43,49 +47,53 @@ export function actionReducer(state, action) {
     };
   }
 
-  if (action.type === "GET_WINNER_ROUND") {
+  if (action.type === "GET_WINNER") {
     const winner = determineWinner(state.moveHuman, state.moveMachine);
-    if (winner === 0) {
+    return {
+      ...state,
+      ...{
+        roundWinner: winner,
+      },
+    };
+  }
+
+  if (action.type === "END_ROUND") {
+    const sharedState = {
+      isHumanPlaying: false,
+      isMachinePlaying: false,
+      moveHuman: null,
+      moveMachine: null,
+      roundWinner: null,
+    };
+    if (state.roundWinner === 99) {
       return {
         ...state,
+        ...sharedState,
         ...{
-          isHumanPlaying: false,
-          isMachinePlaying: false,
-          moveHuman: null,
-          moveMachine: null,
-          roundWinner: null,
+          message: "No one wins the round!",
           movesCount: state.movesCount + 1,
-          message: "No one wins this round!",
         },
       };
-    } else if (winner === 11) {
+    } else if (state.roundWinner === 11) {
       return {
         ...state,
+        ...sharedState,
         ...{
-          isHumanPlaying: false,
-          isMachinePlaying: false,
-          moveHuman: null,
-          moveMachine: null,
-          roundWinner: winner,
+          message: "Machine wins the round!",
           movesCount: state.movesCount + 1,
           scoreMachine: state.scoreMachine + 1,
           scoreHuman: state.scoreHuman - 1,
-          message: "Machine wins this round!",
         },
       };
-    } else if (winner === 22) {
+    } else if (state.roundWinner === 22) {
       return {
         ...state,
+        ...sharedState,
         ...{
-          isHumanPlaying: false,
-          isMachinePlaying: false,
-          moveHuman: null,
-          moveMachine: null,
-          roundWinner: winner,
+          message: "Human wins the round!",
           movesCount: state.movesCount + 1,
           scoreHuman: state.scoreHuman + 1,
           scoreMachine: state.scoreMachine - 1,
-          message: "Human wins this round!",
         },
       };
     }

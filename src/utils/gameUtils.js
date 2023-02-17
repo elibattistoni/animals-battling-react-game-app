@@ -27,7 +27,7 @@ export function getMachineWeightedDraw(weights) {
 
 export function determineWinner(pawnHuman, pawnComputer) {
   if (pawnHuman === pawnComputer) {
-    return 0;
+    return 99;
   } else if (
     (pawnHuman === 1 && pawnComputer === 2) ||
     (pawnHuman === 2 && pawnComputer === 3) ||

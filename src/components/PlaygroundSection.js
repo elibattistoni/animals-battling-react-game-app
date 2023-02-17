@@ -11,11 +11,11 @@ function PlaygroundSection({
   message,
   finished,
   movePawn,
-  winnerRound,
+  roundWinner,
 }) {
   let contentPlayground;
 
-  if (!isHumanPlaying && !isMachinePlaying) {
+  if (message && !isHumanPlaying && !isMachinePlaying) {
     // ! show message if no one is playing
     contentPlayground = <MessagePlayground message={message} />;
   } else {
@@ -26,12 +26,16 @@ function PlaygroundSection({
           isMachinePlaying={isMachinePlaying}
           moveMachine={moveMachine}
           isHumanPlaying={isHumanPlaying}
+          roundWinner={roundWinner}
         />
-        <FieldHuman isHumanPlaying={isHumanPlaying} moveHuman={moveHuman} />
+        <FieldHuman
+          isHumanPlaying={isHumanPlaying}
+          moveHuman={moveHuman}
+          roundWinner={roundWinner}
+        />
       </div>
     );
   }
-
   return (
     <section className="grid play-box">
       <div className="player-machine">

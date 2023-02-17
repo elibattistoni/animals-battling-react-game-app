@@ -24,6 +24,9 @@
   font-size: 3rem;
 }
 
+.defeated {
+  animation: drop .5s ease forwards;
+}
 
 @keyframes attachTowardsLeft {
   0% {
@@ -48,5 +51,22 @@
 
   100% {
     transform: translate(0, 0) scale(1.1) rotateY(180deg);
+  }
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0.4;
+    transform: rotate(45deg) scale(0.8);
+  }
+
+  50% {
+    transform: translateY(100px) rotate(45deg) scale(0.4);
+    opacity: 0.2
+  }
+
+  100% {
+    transform: translateY(120px) rotate(45deg) scale(0.2);
+    opacity: 0
   }
 }

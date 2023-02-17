@@ -11,6 +11,7 @@ function PlaygroundSection({
   message,
   finished,
   movePawn,
+  winnerRound,
 }) {
   let contentPlayground;
 

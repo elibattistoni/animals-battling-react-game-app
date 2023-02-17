@@ -13,6 +13,7 @@ function App() {
     scoreMachine,
     isHumanPlaying,
     isMachinePlaying,
+    winnerRound,
     moveHuman,
     moveMachine,
     finished,
@@ -24,7 +25,7 @@ function App() {
     if (!state.preferenceMachine) {
       dispatchAction({ type: "RESET_GAME" });
     }
-  }, []);
+  }, [state.preferenceMachine]);
 
   useEffect(() => {
     if (state.movesCount === 5) {
@@ -40,15 +41,36 @@ function App() {
 
   function clickPawnHandler(pawnType) {
     dispatchAction({ type: "HUMAN_MOVE", value: pawnType });
-    setTimeout(() => {
-      const randomPawn = getMachineWeightedDraw(state.preferenceMachine);
-      dispatchAction({ type: "MACHINE_MOVE", value: randomPawn });
-
-      setTimeout(() => {
-        dispatchAction({ type: "GET_WINNER_ROUND" });
-      }, 2000);
-    }, 2000);
   }
+
+  useEffect(() => {
+    if (moveHuman) {
+      const timeout = setTimeout(() => {
+        console.log("TIMEOUT 1 --> HUMAN MOVED AND NOT NULL -- MOVING MACHINE");
+        const randomPawn = getMachineWeightedDraw(state.preferenceMachine);
+        dispatchAction({ type: "MACHINE_MOVE", value: randomPawn });
+      }, 4000);
+      return () => {
+        console.log("TIMEOUT 1 --> CLEANUP");
+        clearTimeout(timeout);
+      };
+    } else return;
+  }, [moveHuman, state.preferenceMachine]);
+
+  useEffect(() => {
+    if (moveMachine) {
+      const timeout = setTimeout(() => {
+        console.log(
+          "TIMEOUT 2 --> MACHINE MOVED AND NOT NULL -- GET WINNER ROUND"
+        );
+        dispatchAction({ type: "GET_WINNER_ROUND" });
+      }, 4000);
+      return () => {
+        console.log("TIMEOUT 2 --> CLEANUP");
+        clearTimeout(timeout);
+      };
+    } else return;
+  }, [moveMachine]);
 
   return (
     <>
@@ -67,6 +89,7 @@ function App() {
           message={message}
           finished={finished}
           movePawn={clickPawnHandler}
+          winnerRound={winnerRound}
         />
         <FooterSection gameWinner={gameWinner} finished={finished} />
       </main>

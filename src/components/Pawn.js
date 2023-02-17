@@ -1,60 +1,28 @@
 import classes from "./Pawn.module.css";
-import { pawns } from "../utils/config";
 import { ReactComponent as Ankylosaurus } from "./ankylosaurus.svg";
 import { ReactComponent as Allosaurus } from "./allosaurus.svg";
 import { ReactComponent as Diplodocus } from "./diplodocus.svg";
 
-function Pawn({ type, player = "machine", movePawn, toDisable }) {
-  let styles = `${classes.pawn} ${classes[player]} ${
-    toDisable ? classes.disabled : ""
-  }`;
-
-  let disableButton = true;
-  if (player === "human" && !toDisable) {
-    disableButton = false;
-  }
-
+function Pawn({ move, player }) {
+  const styles =
+    player === "machine" ? classes["dyno-machine"] : classes["dyno-human"];
   let svgImage;
-  switch (type) {
+  switch (move) {
     case 1:
-      svgImage = (
-        <Allosaurus
-          className={`${classes.dyno} ${
-            player === "human" ? classes["dyno-human"] : classes["dyno-machine"]
-          }`}
-        />
-      );
+      svgImage = <Allosaurus className={styles} />;
       break;
     case 2:
-      svgImage = (
-        <Ankylosaurus
-          className={`${classes.dyno} ${
-            player === "human" ? classes["dyno-human"] : classes["dyno-machine"]
-          }`}
-        />
-      );
+      svgImage = <Ankylosaurus className={styles} />;
       break;
     case 3:
-      svgImage = (
-        <Diplodocus
-          className={`${classes.dyno} ${
-            player === "human" ? classes["dyno-human"] : classes["dyno-machine"]
-          }`}
-        />
-      );
+      svgImage = <Diplodocus className={styles} />;
+      break;
+    default:
+      svgImage = <div>IMAGE NOT FOUND</div>;
       break;
   }
 
-  return (
-    <button
-      className={styles}
-      onClick={() => movePawn(type)}
-      disabled={disableButton}
-    >
-      {svgImage}
-      {pawns[type]}
-    </button>
-  );
+  return svgImage;
 }
 
 export default Pawn;

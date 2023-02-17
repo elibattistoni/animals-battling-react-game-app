@@ -1,0 +1,50 @@
+.pawn {
+  font-size: 3rem;
+  color: var(--color-gray-1000);
+  padding: 1rem 1.5rem;
+  transition: 0.5s;
+  border: none;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem
+}
+
+.human {
+  background-color: var(--color-2-300);
+  cursor: pointer
+}
+
+.human:hover, .human:active {
+  background-color: var(--color-2-400);
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: var(--color-2-300);
+}
+
+.machine {
+  background-color: var(--color-3-300);
+  cursor: not-allowed
+}
+
+.dyno {
+  stroke: black;
+  height: 5rem;
+  width: 5rem;
+}
+
+.dyno-human {
+  fill: var(--color-2-700);
+  transform: rotateY(180deg);
+}
+
+.dyno-machine {
+  fill: var(--color-3-700)
+}

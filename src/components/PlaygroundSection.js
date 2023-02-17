@@ -1,7 +1,7 @@
 import FieldMachine from "./FieldMachine";
 import FieldHuman from "./FieldHuman";
 import MessagePlayground from "./MessagePlayground";
-import Pawn from "./Pawn";
+import PawnButton from "./PawnButton";
 
 function PlaygroundSection({
   isHumanPlaying,
@@ -39,27 +39,27 @@ function PlaygroundSection({
   return (
     <section className="grid play-box">
       <div className="player-machine">
-        <Pawn type={1} />
-        <Pawn type={2} />
-        <Pawn type={3} />
+        <PawnButton type={1} />
+        <PawnButton type={2} />
+        <PawnButton type={3} />
       </div>
       <div className="playground-out">
         <div className="playground-in">{contentPlayground}</div>
       </div>
       <div className="player-human">
-        <Pawn
+        <PawnButton
           type={1}
           player="human"
           movePawn={movePawn}
           toDisable={isHumanPlaying || finished}
         />
-        <Pawn
+        <PawnButton
           type={2}
           player="human"
           movePawn={movePawn}
           toDisable={isHumanPlaying || finished}
         />
-        <Pawn
+        <PawnButton
           type={3}
           player="human"
           movePawn={movePawn}

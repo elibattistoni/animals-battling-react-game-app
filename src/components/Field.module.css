@@ -14,12 +14,11 @@
   animation: load 1s infinite;
 }
 
-.dyno {
-  width: 25rem;
-  height: 25rem;
-  fill: var(--color-3-300);
-  stroke: var(--color-3-300);
-  animation: attackTowardsRight .75s 2 forwards;
+.playground-pawn {
+  font-size: 5rem;
+  color: var(--color-gray-1000);
+  padding: 1rem 2rem;
+  animation: fadeIn 2s;
 }
 
 .pawn-container {
@@ -29,15 +28,26 @@
   justify-content: center;
 }
 
-.label {
+.label-human {
+  color: var(--color-2-300);
+  text-decoration: underline;
+  font-size: 3rem;
+}
+
+.label-machine {
   color: var(--color-3-300);
   text-decoration: underline;
   font-size: 3rem;
 }
 
-.defeated {
-  animation: drop .5s ease forwards;
+.defeated-human {
+  animation: dropHuman .5s ease forwards;
 }
+
+.defeated-machine {
+  animation: dropMachine .5s ease forwards;
+}
+
 
 
 @keyframes load {
@@ -70,48 +80,25 @@
   }
 }
 
-@keyframes attackTowardsRight {
+
+@keyframes dropHuman {
   0% {
-    transform: translate(0, 0) scale(1.1);
-  }
-
-  20% {
-    transform: translate(10px, 6px) scale(1.2);
-  }
-
-  40% {
-    transform: translate(20px, 0) scale(1.1);
-  }
-
-  60% {
-    transform: translate(40px, 0) scale(1.2);
-  }
-
-  80% {
-    transform: translate(50px, 6px) scale(1.2);
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1.1);
-  }
-}
-
-
-@keyframes falling {
-  0% {
-    transform: translateY(100px) scale(0.8) opacity(0.8);
+    opacity: 0.4;
+    transform: rotate(45deg) scale(0.8);
   }
 
   50% {
-    transform: translateY(200px) scale(0.4) opacity(0.6);
+    transform: translateY(100px) rotate(45deg) scale(0.4);
+    opacity: 0.2
   }
 
   100% {
-    transform: translateY(300px) scale(0.2) opacity(0.2)
+    transform: translateY(120px) rotate(45deg) scale(0.2);
+    opacity: 0
   }
 }
 
-@keyframes drop {
+@keyframes dropMachine {
   0% {
     opacity: 0.4;
     transform: rotate(-45deg) scale(0.8);

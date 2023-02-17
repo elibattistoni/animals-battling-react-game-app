@@ -1,50 +1,69 @@
-.pawn {
-  font-size: 3rem;
-  color: var(--color-gray-1000);
-  padding: 1rem 1.5rem;
-  transition: 0.5s;
-  border: none;
-  font-weight: 600;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem
-}
-
-.human {
-  background-color: var(--color-2-300);
-  cursor: pointer
-}
-
-.human:hover, .human:active {
-  background-color: var(--color-2-400);
-}
-
-.disabled {
-  cursor: not-allowed;
-}
-
-.disabled:hover {
-  background-color: var(--color-2-300);
-}
-
-.machine {
-  background-color: var(--color-3-300);
-  cursor: not-allowed
-}
-
-.dyno {
-  stroke: black;
-  height: 5rem;
-  width: 5rem;
-}
-
 .dyno-human {
-  fill: var(--color-2-700);
+  width: 25rem;
+  height: 25rem;
+  fill: var(--color-2-300);
+  stroke: var(--color-2-300);
   transform: rotateY(180deg);
+  animation: attachTowardsLeft .75s 3 forwards 1.2s;
 }
 
 .dyno-machine {
-  fill: var(--color-3-700)
+  width: 25rem;
+  height: 25rem;
+  fill: var(--color-3-300);
+  stroke: var(--color-3-300);
+  animation: attackTowardsRight .75s 2 forwards;
+}
+
+
+@keyframes attachTowardsLeft {
+  0% {
+    transform: translate(0, 0) scale(1.1) rotateY(180deg);
+  }
+
+  20% {
+    transform: translate(-10px, 6px) scale(1.2) rotateY(180deg);
+  }
+
+  40% {
+    transform: translate(-20px, 0) scale(1.1) rotateY(180deg);
+  }
+
+  60% {
+    transform: translate(-40px, 0) scale(1.2) rotateY(180deg);
+  }
+
+  80% {
+    transform: translate(-50px, 6px) scale(1.2) rotateY(180deg);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1.1) rotateY(180deg);
+  }
+}
+
+@keyframes attackTowardsRight {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+  }
+
+  20% {
+    transform: translate(10px, 6px) scale(1.2);
+  }
+
+  40% {
+    transform: translate(20px, 0) scale(1.1);
+  }
+
+  60% {
+    transform: translate(40px, 0) scale(1.2);
+  }
+
+  80% {
+    transform: translate(50px, 6px) scale(1.2);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1.1);
+  }
 }

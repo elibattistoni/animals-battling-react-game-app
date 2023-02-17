@@ -102,13 +102,6 @@ button {
   height: 100%
 }
 
-.playground-pawn {
-  font-size: 5rem;
-  color: var(--color-gray-1000);
-  padding: 1rem 2rem;
-  animation: fadeIn 2s;
-}
-
 .hidden {
   display: hidden;
 }

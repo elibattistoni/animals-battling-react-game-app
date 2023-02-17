@@ -1,6 +1,6 @@
 # dinosaurs-battling-react-game-app
 
-BIG TODO: make it responsive!!
+NB: this project works well and it is almost finished; but it will be finalized only when I will make it reesponsive (now it is not responsive but it will be, soon). When finalized, I will deploy it on Netlify and share here the link.
 
 This repository contains a simple single player vs computer game. Both the human player and the computer have 3 dinosaurs at their disposal:
 1. an [Allosaurus](https://www.nhm.ac.uk/discover/dino-directory/allosaurus.html): Allosaurus was a considerably nastier carnivore than the (much later) Tyrannosaurus rex; countless examples of this aggressive, powerful, three-ton meat-eating machine have been unearthed across the western United States. Despite its lethal nature, Allosaurus was not intelligent, owing to a brain the size of a twisted hotdog ([resource](https://www.gagebeasleyshop.com/en-it/blogs/gb-blog/most-dangerous-dinosaur)).

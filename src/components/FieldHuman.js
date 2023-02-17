@@ -19,7 +19,12 @@ function FieldHuman({ isHumanPlaying, moveHuman, roundWinner }) {
 
   if (stateWinner === 11) {
     stylesPawn += `${classes["defeated-human"]}`;
-    stylesLabel = "hidden";
+    stylesLabel = `${classes["fade-out"]}`;
+  }
+
+  if (stateWinner === 99) {
+    stylesPawn += `${classes["fade-out"]}`;
+    stylesLabel = `${classes["fade-out"]}`;
   }
 
   return (

@@ -52,7 +52,7 @@ function App() {
         //! this sets:
         //! 1) moveMachine to a truthy value
         //! 2) isMachinePlaying to true
-      }, 2000);
+      }, 1500);
       return () => {
         //console.log("TIMEOUT 1 --> CLEANUP");
         clearTimeout(timeout);
@@ -88,7 +88,7 @@ function App() {
         //! 3) moveHuman and moveMachine to a falsy value
         //! 4) movesCount is increased by 1
         //! 5) depending on roundWinner, the scoreHuman and scoreMachine is increased, decreased or is unchanged
-      }, 2500);
+      }, 1000);
       return () => {
         //console.log("TIMEOUT 3 --> CLEANUP");
         clearTimeout(timeout);

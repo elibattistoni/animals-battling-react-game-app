@@ -25,7 +25,12 @@ function FieldMachine({
 
   if (stateWinner === 22) {
     stylesPawn += `${classes["defeated-machine"]}`;
-    stylesLabel = "hidden";
+    stylesLabel = `${classes["fade-out"]}`;
+  }
+
+  if (stateWinner === 99) {
+    stylesPawn += `${classes["fade-out"]}`;
+    stylesLabel = `${classes["fade-out"]}`;
   }
 
   //! define content of the playground

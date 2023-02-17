@@ -48,6 +48,23 @@
   animation: dropMachine .5s ease forwards;
 }
 
+.fade-out {
+  animation: fadeOut .5s ease forwards
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.2
+  }
+
+  100% {
+    opacity: 0
+  }
+}
 
 
 @keyframes load {

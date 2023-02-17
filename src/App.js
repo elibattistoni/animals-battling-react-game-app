@@ -1,9 +1,9 @@
 import { useEffect, useReducer } from "react";
 import { initialState, actionReducer } from "./gameReducer";
-import Header from "./components/Header";
-import ScoresSection from "./components/ScoresSection";
-import PlaygroundSection from "./components/PlaygroundSection";
-import FooterSection from "./components/FooterSection";
+import Header from "./components/header/Header";
+import ScoresSection from "./components/playground/ScoresSection";
+import PlaygroundSection from "./components/playground/PlaygroundSection";
+import FooterSection from "./components/footer/FooterSection";
 import { getMachineWeightedDraw } from "./utils/gameUtils";
 
 function App() {

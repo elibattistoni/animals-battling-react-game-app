@@ -1,5 +1,5 @@
 import classes from "./PawnButton.module.css";
-import { pawns } from "../utils/config";
+import { pawns } from "../../utils/config";
 import { ReactComponent as Ankylosaurus } from "./ankylosaurus.svg";
 import { ReactComponent as Allosaurus } from "./allosaurus.svg";
 import { ReactComponent as Diplodocus } from "./diplodocus.svg";

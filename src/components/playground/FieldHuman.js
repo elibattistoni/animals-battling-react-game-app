@@ -1,6 +1,6 @@
-import { pawns } from "../utils/config";
+import { pawns } from "../../utils/config";
 import classes from "./Field.module.css";
-import Pawn from "./Pawn";
+import Pawn from "../pawns/Pawn";
 import { useEffect, useState } from "react";
 
 function FieldHuman({ isHumanPlaying, moveHuman, roundWinner }) {

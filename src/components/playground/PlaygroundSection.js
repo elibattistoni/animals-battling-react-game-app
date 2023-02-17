@@ -1,7 +1,7 @@
 import FieldMachine from "./FieldMachine";
 import FieldHuman from "./FieldHuman";
 import MessagePlayground from "./MessagePlayground";
-import PawnButton from "./PawnButton";
+import PawnButton from "../pawns/PawnButton";
 
 function PlaygroundSection({
   isHumanPlaying,

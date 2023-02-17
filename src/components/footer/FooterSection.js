@@ -1,5 +1,5 @@
 import classes from "./FooterSection.module.css";
-import { players } from "../utils/config";
+import { players } from "../../utils/config";
 
 function FooterSection({ gameWinner, finished }) {
   return (

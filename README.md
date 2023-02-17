@@ -1,5 +1,7 @@
 # dinosaurs-battling-react-game-app
 
+BIG TODO: make it responsive!!
+
 This repository contains a simple single player vs computer game. Both the human player and the computer have 3 dinosaurs at their disposal:
 1. an [Allosaurus](https://www.nhm.ac.uk/discover/dino-directory/allosaurus.html): Allosaurus was a considerably nastier carnivore than the (much later) Tyrannosaurus rex; countless examples of this aggressive, powerful, three-ton meat-eating machine have been unearthed across the western United States. Despite its lethal nature, Allosaurus was not intelligent, owing to a brain the size of a twisted hotdog ([resource](https://www.gagebeasleyshop.com/en-it/blogs/gb-blog/most-dangerous-dinosaur)).
 2. an [Ankylosaurus](https://www.nhm.ac.uk/discover/dino-directory/ankylosaurus.html): Ankylosaurus, the armored dinosaur, was a near cousin of Stegosaurus, and both creatures similarly defended against foes. Unlike Stegosaurus, whose tail ended in a spiky thagomizer, Ankylosaurus sported a gigantic tail club weighing an estimated one hundred pounds—the dinosaur version of a historical mace. Ankylosaurus probably used this club for fighting among the same species during mating season. Still, it was powerful enough to shatter the hind limb of a Tyrannosaurus rex or knock out some of its teeth with a well-placed swipe ([resource](https://www.gagebeasleyshop.com/en-it/blogs/gb-blog/most-dangerous-dinosaur)).
